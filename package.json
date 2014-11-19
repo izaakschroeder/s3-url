@@ -1,0 +1,30 @@
+{
+	"name": "s3-url",
+	"version": "0.1.0",
+	"author": "Izaak Schroeder <izaak.schroeder@gmail.com>",
+	"description": "Go between URLs and AWS options objects for S3.",
+	"keywords": [ "aws", "s3", "url" ],
+	"license": "CC0-1.0",
+	"homepage": "https://github.com/izaakschroeder/s3-url",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/izaakschroeder/s3-url.git"
+	},
+	"main": "lib/s3-url.js",
+	"scripts": {
+		"test": "npm run lint && npm run spec && npm run coverage",
+		"spec": "NODE_PATH=lib NODE_ENV=test istanbul cover node_modules/.bin/_mocha -- -r test/helpers/chai -R spec test/spec",
+		"lint": "eslint --ignore-path .gitignore .",
+		"coverage": "istanbul check-coverage --statement 100 --branch 100 --function 100"
+	},
+	"dependencies": {
+		"lodash": "2.x"
+	},
+	"devDependencies": {
+		"eslint": "*",
+		"eslint-plugin-nodeca": "*",
+		"mocha": "*",
+		"istanbul": "*",
+		"chai": "*"
+	}
+}
