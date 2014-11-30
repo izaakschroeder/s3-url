@@ -23,6 +23,15 @@ describe('optionsToURL', function() {
 		});
 		expect(result).to.equal('s3://bucket');
 	});
+
+	it('should produce extended parameters', function() {
+		var result = s3Url.optionsToUrl({
+			Bucket: 'bucket',
+			Key: 'key',
+			ContentType: 'foo/bar'
+		});
+		expect(result).to.equal('s3://bucket/key?ContentType=foo%2Fbar');
+	});
 });
 
 describe('urlToOptions', function() {
@@ -52,5 +61,23 @@ describe('urlToOptions', function() {
 
 	it('should fail with nothing', function() {
 		expect(s3Url.urlToOptions).to.throw(TypeError);
+	});
+
+	it('should parse the query parameters', function() {
+		expect(s3Url.urlToOptions(url.parse('s3://bucket/key?ContentType=l')))
+			.to.deep.equal({
+				Bucket: 'bucket',
+				Key: '/key',
+				ContentType: 'l'
+			});
+	});
+
+	it('should parse the query parameters', function() {
+		expect(s3Url.urlToOptions('s3://bucket/key?ContentType=l'))
+			.to.deep.equal({
+				Bucket: 'bucket',
+				Key: '/key',
+				ContentType: 'l'
+			});
 	});
 });
