@@ -40,7 +40,7 @@ describe('urlToOptions', function() {
 		expect(s3Url.urlToOptions(url.parse('s3://bucket/key')))
 			.to.deep.equal({
 				Bucket: 'bucket',
-				Key: '/key'
+				Key: 'key'
 			});
 	});
 
@@ -48,7 +48,7 @@ describe('urlToOptions', function() {
 		expect(s3Url.urlToOptions('s3://bucket/key'))
 			.to.deep.equal({
 				Bucket: 'bucket',
-				Key: '/key'
+				Key: 'key'
 			});
 	});
 
@@ -67,7 +67,7 @@ describe('urlToOptions', function() {
 		expect(s3Url.urlToOptions(url.parse('s3://bucket/key?ContentType=l')))
 			.to.deep.equal({
 				Bucket: 'bucket',
-				Key: '/key',
+				Key: 'key',
 				ContentType: 'l'
 			});
 	});
@@ -76,7 +76,7 @@ describe('urlToOptions', function() {
 		expect(s3Url.urlToOptions('s3://bucket/key?ContentType=l'))
 			.to.deep.equal({
 				Bucket: 'bucket',
-				Key: '/key',
+				Key: 'key',
 				ContentType: 'l'
 			});
 	});
