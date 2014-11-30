@@ -1,6 +1,6 @@
 {
 	"name": "s3-url",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"author": "Izaak Schroeder <izaak.schroeder@gmail.com>",
 	"description": "Go between URLs and AWS options objects for S3.",
 	"keywords": [ "aws", "s3", "url" ],
