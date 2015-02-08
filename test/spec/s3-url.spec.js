@@ -80,4 +80,11 @@ describe('urlToOptions', function() {
 				ContentType: 'l'
 			});
 	});
+
+	it('should accept paths instead of URLs', function() {
+		expect(s3Url.urlToOptions('some/key'))
+			.to.deep.equal({
+				Key: 'some/key'
+			});
+	});
 });
